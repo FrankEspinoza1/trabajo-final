@@ -1,180 +1,207 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | K Pop</title>
+    <link rel="stylesheet" href="estilo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio | K Pop</title>
-  <link rel="stylesheet" href="estilo.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-</head>
+  <body>
+    <header class="cabecera">
+      <nav class="navegacion">
+        <div class="logo">
+          <img src="imagen/logo1.png" alt="K POP" />
+        </div>
 
-<body>
-  <header class="cabecera">
-    <nav class="navegacion">
+        <ul class="menu">
+          <li><a href="index.html" class="activo">Inicio</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
 
-      <div class="logo">
-        <img src="imagen/logo1.png" alt="K POP" />
-      </div>
+        <div class="acciones">
+          <a href="#" class="login">Iniciar Sesión</a>
+          <div class="carrito">
+            <i class="fa-solid fa-bag-shopping"></i
+            ><span class="contador" id="contador-carrito">0</span>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-      <ul class="menu">
-        <li><a href="index.html" class="activo">Inicio</a></li>
-        <li><a href="tienda.html">Tienda</a></li>
-      </ul>
-
-      <div class="acciones">
-        <a href="#" class="login">Iniciar Sesión</a>
-        <div class="carrito"><i class="fa-solid fa-bag-shopping"></i><span class="contador">0</span></div>
-      </div>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Libros y herramientas para tu éxito profesional</h1>
-    <p>
-      En K POP, seleccionamos lo mejor en literatura y papelería técnica.
-      Nosotros te acompañamos en cada paso de tu formación con materiales
-      diseñados para la excelencia.
-    </p>
-    <a href="tienda.html" class="boton-hero">Explorar Coleccion</a>
-    <img src="imagen/logo2.png" />
-  </section>
-
-  <section class="contenido">
-    <h2>Nuestras Categorias</h2>
-    <p class="texto">
-      Descubre herramientas esenciales seleccionadas para potenciar tu
-      creatividad y éxito profesional.
-    </p>
-    <div class="cards">
-      <div class="card">
-        <img src="imagen/logo3.png" />
-        <h3>Libros</h3>
-        <p>
-          Desde clásicos eternos hasta las últimas novedades literarias para
-          tu crecimiento.
-        </p>
-        <a href="tienda.html">Comprar Libros</a>
-      </div>
-
-      <div class="card">
-        <img src="imagen/logo4.png" />
-        <h3>Papelería</h3>
-        <p>
-          Materiales de alta calidad para organizar tus proyectos con un
-          estilo impecable.
-        </p>
-        <a href="tienda.html">Ver Papelería</a>
-      </div>
-
-      <div class="card">
-        <img src="imagen/logo5.png" />
-        <h3>Escritura</h3>
-        <p>
-          Herramientas de precisión que transforman cada palabra en una
-          experiencia fluida.
-        </p>
-        <a href="tienda.html">Explorar Útiles</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="catalogo">
-    <h2>Productos Destacados</h2>
-
-    <p class="texto">
-      Explora nuestra selección curada de materiales esenciales. En K POP,
-      ofrecemos desde libros técnicos hasta papelería artesanal, diseñados
-      para elevar tu productividad académica y profesional.
-    </p>
-
-    <div class="productos">
-      <div class="producto">
-        <img src="imagen/logo6.png" />
-        <p>Articulo 01</p>
-        <span>S/ 80</span>
-        <button class="btn-index">Agregar al carrito</button>
-      </div>
-
-      <div class="producto">
-        <img src="imagen/logo7.png" />
-        <p>Articulo 02</p>
-        <span>S/ 120</span>
-        <button class="btn-index">Agregar al carrito</button>
-      </div>
-
-      <div class="producto">
-        <img src="imagen/logo8.png" />
-        <p>Articulo 03</p>
-        <span>S/ 90</span>
-        <button class="btn-index">Agregar al carrito</button>
-      </div>
-
-      <div class="producto">
-        <img src="imagen/logo9.png" />
-        <p>Articulo 04</p>
-        <span>S/ 25</span>
-        <button class="btn-index">Agregar al carrito</button>
-      </div>
-
-      <div class="producto">
-        <img src="imagen/logo10.png" />
-        <p>Articulo 05</p>
-        <span>S/ 15</span>
-        <button class="btn-index">Agregar al carrito</button>
-      </div>
-
-      <div class="producto">
-        <img src="imagen/logo11.png" />
-        <p>Articulo 06</p>
-        <span>S/ 35</span>
-        <button class="btn-index">Agregar al carrito</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="ofertas-contenido">
-    <div class="ofertas-header">
-      <h2>
-        Calidad y <br />
-        Profesionalismo
-      </h2>
-
+    <section class="hero">
+      <h1>Libros y herramientas para tu éxito profesional</h1>
       <p>
-        En K POP, entendemos que un espacio de trabajo bien equipado es el
-        primer paso hacia la innovación. Nos dedicamos a curar libros y
-        artículos de papelería que no solo cumplen una función académica, sino
-        que elevan la experiencia diaria de cada profesional. Creemos que las
-        herramientas adecuadas son fundamentales para el éxito, por lo que
-        cada pluma y cuaderno en nuestra colección ha sido elegido por su
-        calidad artesanal y sofisticación.
+        En K POP, seleccionamos lo mejor en literatura y papelería técnica.
+        Nosotros te acompañamos en cada paso de tu formación con materiales
+        diseñados para la excelencia.
       </p>
+      <a href="tienda.html" class="boton-hero">Explorar Coleccion</a>
+      <img src="imagen/logo2.png" />
+    </section>
+
+    <section class="contenido">
+      <h2>Nuestras Categorias</h2>
+      <p class="texto">
+        Descubre herramientas esenciales seleccionadas para potenciar tu
+        creatividad y éxito profesional.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <img src="imagen/logo3.png" />
+          <h3>Libros</h3>
+          <p>
+            Desde clásicos eternos hasta las últimas novedades literarias para
+            tu crecimiento.
+          </p>
+          <a href="tienda.html">Comprar Libros</a>
+        </div>
+
+        <div class="card">
+          <img src="imagen/logo4.png" />
+          <h3>Papelería</h3>
+          <p>
+            Materiales de alta calidad para organizar tus proyectos con un
+            estilo impecable.
+          </p>
+          <a href="tienda.html">Ver Papelería</a>
+        </div>
+
+        <div class="card">
+          <img src="imagen/logo5.png" />
+          <h3>Escritura</h3>
+          <p>
+            Herramientas de precisión que transforman cada palabra en una
+            experiencia fluida.
+          </p>
+          <a href="tienda.html">Explorar Útiles</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogo">
+      <h2>Productos Destacados</h2>
+
+      <p class="texto">
+        Explora nuestra selección curada de materiales esenciales. En K POP,
+        ofrecemos desde libros técnicos hasta papelería artesanal, diseñados
+        para elevar tu productividad académica y profesional.
+      </p>
+
+      <div class="productos">
+        <div class="producto producto-card">
+          <img src="imagen/logo6.png" />
+          <h4>Articulo 01</h4>
+          <p class="precio">S/ 80</p>
+          <button class="btn-index btn-agregar">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-card">
+          <img src="imagen/logo7.png" />
+          <h4>Articulo 02</h4>
+          <p class="precio">S/ 120</p>
+          <button class="btn-index btn-agregar">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-card">
+          <img src="imagen/logo8.png" />
+          <h4>Articulo 03</h4>
+          <p class="precio">S/ 90</p>
+          <button class="btn-index btn-agregar">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-card">
+          <img src="imagen/logo9.png" />
+          <h4>Articulo 04</h4>
+          <p class="precio">S/ 25</p>
+          <button class="btn-index btn-agregar">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-card">
+          <img src="imagen/logo10.png" />
+          <h4>Articulo 05</h4>
+          <p class="precio">S/ 15</p>
+          <button class="btn-index btn-agregar">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-card">
+          <img src="imagen/logo11.png" />
+          <h4>Articulo 06</h4>
+          <p class="precio">S/ 35</p>
+          <button class="btn-index btn-agregar">Agregar al carrito</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ofertas-contenido">
+      <div class="ofertas-header">
+        <h2>
+          Calidad y <br />
+          Profesionalismo
+        </h2>
+
+        <p>
+          En K POP, entendemos que un espacio de trabajo bien equipado es el
+          primer paso hacia la innovación. Nos dedicamos a curar libros y
+          artículos de papelería que no solo cumplen una función académica, sino
+          que elevan la experiencia diaria de cada profesional. Creemos que las
+          herramientas adecuadas son fundamentales para el éxito, por lo que
+          cada pluma y cuaderno en nuestra colección ha sido elegido por su
+          calidad artesanal y sofisticación.
+        </p>
+      </div>
+
+      <img src="imagen/logo12.png" alt="" />
+    </section>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <img src="imagen/logo1.png" alt="Logo" class="footer-logo" />
+        <div class="footer-text">
+          <p><strong>Ubicación y Teléfono</strong></p>
+          <p>Calle de la Armonía 12, 28004 Lima Peru</p>
+          <p>+51 912 345 678</p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <h3>Atención al cliente</h3>
+        <p>Email: hola@kpoplibreria.com</p>
+        <p>Lunes a Viernes: 09:00 - 20:00</p>
+      </div>
+    </footer>
+
+    <div class="footer-copy">
+      <p>© 2026 K POP. Todos los derechos reservados.</p>
     </div>
 
-    <img src="imagen/logo12.png" alt="" />
-  </section>
+    <!-- PANEL CARRITO -->
 
-  <footer class="footer">
-    <div class="footer-left">
-      <img src="imagen/logo1.png" alt="Logo" class="footer-logo" />
-      <div class="footer-text">
-        <p><strong>Ubicación y Teléfono</strong></p>
-        <p>Calle de la Armonía 12, 28004 Lima Peru</p>
-        <p>+51 912 345 678</p>
+    <div class="panel-carrito" id="panel-carrito">
+      <div class="carrito-header">
+        <h3>Tu carrito</h3>
+
+        <button id="cerrar-carrito">✕</button>
+      </div>
+
+      <div class="carrito-productos" id="carrito-productos"></div>
+
+      <div class="carrito-footer">
+        <p>
+          Total:
+          <span id="total-carrito"> S/ 0 </span>
+        </p>
+
+        <button id="vaciar-carrito">Vaciar carrito</button>
       </div>
     </div>
 
-    <div class="footer-right">
-      <h3>Atención al cliente</h3>
-      <p>Email: hola@kpoplibreria.com</p>
-      <p>Lunes a Viernes: 09:00 - 20:00</p>
-    </div>
-  </footer>
+    <div class="overlay" id="overlay"></div>
 
-  <div class="footer-copy">
-    <p>© 2026 K POP. Todos los derechos reservados.</p>
-  </div>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

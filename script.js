@@ -16,6 +16,8 @@ const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 
 const overlay = document.getElementById("overlay");
 
+const filtroPrecio = document.getElementById("filtro-precio");
+
 let carrito = [];
 
 const carritoGuardado = localStorage.getItem("carrito");
@@ -48,8 +50,8 @@ botonesAgregar.forEach((boton) => {
 // ABRIR CARRITO
 
 carritoIcono.addEventListener("click", () => {
-  panelCarrito.classList.add("activo");
-  overlay.classList.add("activo");
+  panelCarrito.classList.toggle("activo");
+  overlay.classList.toggle("activo");
 });
 
 // CERRAR CARRITO
@@ -66,11 +68,9 @@ vaciarCarritoBtn.addEventListener("click", () => {
 });
 
 overlay.addEventListener("click", () => {
+  panelCarrito.classList.remove("activo");
 
-    panelCarrito.classList.remove("activo");
-
-    overlay.classList.remove("activo");
-
+  overlay.classList.remove("activo");
 });
 
 function actualizarCarrito() {
@@ -90,13 +90,18 @@ function actualizarCarrito() {
 
     item.innerHTML = `
     <div class="item-info">
-        <h4>${producto.nombre}</h4>
-        <p>${producto.precio}</p>
-    </div>
 
-    <button class="eliminar-item">
-        ✕
-    </button>
+    <h4>${producto.nombre}</h4>
+
+    <p>${producto.precio}</p>
+
+</div>
+
+<button class="eliminar-item">
+
+    <i class="fa-solid fa-trash"></i>
+
+</button>
 `;
 
     carritoProductos.appendChild(item);
@@ -160,3 +165,26 @@ checkLibros.addEventListener("change", filtrarProductos);
 checkPapeleria.addEventListener("change", filtrarProductos);
 
 checkEscritura.addEventListener("change", filtrarProductos);
+
+
+filtroPrecio.addEventListener("change", () => {
+  const valor = filtroPrecio.value;
+
+  productos.forEach((producto) => {
+    const precioTexto = producto.querySelector(".precio").textContent;
+
+    const precio = parseFloat(precioTexto.replace("S/", ""));
+
+    let mostrar = true;
+
+    if (valor === "menos-50") {
+      mostrar = precio < 50;
+    }
+
+    if (valor === "50-150") {
+      mostrar = precio >= 50 && precio <= 150;
+    }
+
+    producto.style.display = mostrar ? "block" : "none";
+  });
+});
