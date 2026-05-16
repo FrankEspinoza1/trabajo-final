@@ -10,6 +10,8 @@ Características
 - Filtros por categoría y precio
 - Animaciones y efectos visuales
 - Persistencia de carrito con LocalStorage
+- Integración con Firebase Firestore
+- Productos cargados dinámicamente desde Firebase
 - Hosting online con Firebase
 
 Tecnologías utilizadas
@@ -18,7 +20,9 @@ Tecnologías utilizadas
 - CSS3
 - JavaScript
 - Firebase Hosting
+- Firebase Firestore
 - Git & GitHub
+
 
 Sitio web
 
