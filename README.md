@@ -34,8 +34,3 @@ Integrantes
 - Jean Paredes Torrejon
 
 Instalación local
-
-Clonar repositorio:
-
-```bash
-git clone https://github.com/EDGARTURPO/actividad-2-codigo.git
