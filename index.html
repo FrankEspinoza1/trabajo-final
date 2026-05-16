@@ -92,7 +92,9 @@
         para elevar tu productividad académica y profesional.
       </p>
 
+
       <div class="productos">
+        <div id="productos-firebase"></div>
         <div class="producto producto-card">
           <img src="imagen/logo6.png" />
           <h4>Articulo 01</h4>
@@ -128,12 +130,7 @@
           <button class="btn-index btn-agregar">Agregar al carrito</button>
         </div>
 
-        <div class="producto producto-card">
-          <img src="imagen/logo11.png" />
-          <h4>Articulo 06</h4>
-          <p class="precio">S/ 35</p>
-          <button class="btn-index btn-agregar">Agregar al carrito</button>
-        </div>
+
       </div>
     </section>
 
@@ -202,6 +199,39 @@
 
     <div class="overlay" id="overlay"></div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCMWC6kwLlwqEU5KpM1axMC2k25wEkGexg",
+        authDomain: "frank-773b4.firebaseapp.com",
+        projectId: "frank-773b4",
+        storageBucket: "frank-773b4.firebasestorage.app",
+        messagingSenderId: "755249312421",
+        appId: "1:755249312421:web:016702caa1e559bd21934c",
+      };
+
+      const app = initializeApp(firebaseConfig);
+
+      const db = getFirestore(app);
+
+      async function cargarProductos() {
+        const querySnapshot = await getDocs(collection(db, "productos"));
+
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data());
+        });
+      }
+
+      cargarProductos();
+    </script>
   </body>
 </html>

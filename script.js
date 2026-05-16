@@ -128,63 +128,116 @@ const checkPapeleria = document.getElementById("papeleria");
 const checkEscritura = document.getElementById("escritura");
 
 const productos = document.querySelectorAll(".producto-card");
+if (!checkLibros || !checkPapeleria || !checkEscritura || !filtroPrecio) {
+  console.log("Filtros no encontrados");
+} else {
+  function filtrarProductos() {
+    productos.forEach((producto) => {
+      const categoria = producto.dataset.categoria;
 
-function filtrarProductos() {
-  productos.forEach((producto) => {
-    const categoria = producto.dataset.categoria;
+      let mostrar = false;
 
-    let mostrar = false;
+      if (checkLibros.checked && categoria === "libros") {
+        mostrar = true;
+      }
 
-    if (checkLibros.checked && categoria === "libros") {
-      mostrar = true;
-    }
+      if (checkPapeleria.checked && categoria === "papeleria") {
+        mostrar = true;
+      }
 
-    if (checkPapeleria.checked && categoria === "papeleria") {
-      mostrar = true;
-    }
+      if (checkEscritura.checked && categoria === "escritura") {
+        mostrar = true;
+      }
 
-    if (checkEscritura.checked && categoria === "escritura") {
-      mostrar = true;
-    }
+      // Mostrar todos si no hay filtros
+      if (
+        !checkLibros.checked &&
+        !checkPapeleria.checked &&
+        !checkEscritura.checked
+      ) {
+        mostrar = true;
+      }
 
-    // Mostrar todos si no hay filtros
-    if (
-      !checkLibros.checked &&
-      !checkPapeleria.checked &&
-      !checkEscritura.checked
-    ) {
-      mostrar = true;
-    }
+      producto.style.display = mostrar ? "block" : "none";
+    });
+  }
 
-    producto.style.display = mostrar ? "block" : "none";
+  checkLibros.addEventListener("change", filtrarProductos);
+
+  checkPapeleria.addEventListener("change", filtrarProductos);
+
+  checkEscritura.addEventListener("change", filtrarProductos);
+
+  filtroPrecio.addEventListener("change", () => {
+    const valor = filtroPrecio.value;
+
+    productos.forEach((producto) => {
+      const precioTexto = producto.querySelector(".precio").textContent;
+
+      const precio = parseFloat(precioTexto.replace("S/", ""));
+
+      let mostrar = true;
+
+      if (valor === "menos-50") {
+        mostrar = precio < 50;
+      }
+
+      if (valor === "50-150") {
+        mostrar = precio >= 50 && precio <= 150;
+      }
+
+      producto.style.display = mostrar ? "block" : "none";
+    });
   });
 }
 
-checkLibros.addEventListener("change", filtrarProductos);
+// FIREBASE
 
-checkPapeleria.addEventListener("change", filtrarProductos);
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-checkEscritura.addEventListener("change", filtrarProductos);
+import {
+  getFirestore,
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCMWC6kwLlwqEU5KpM1axMC2k25wEkGexg",
+  authDomain: "frank-773b4.firebaseapp.com",
+  projectId: "frank-773b4",
+  storageBucket: "frank-773b4.firebasestorage.app",
+  messagingSenderId: "755249312421",
+  appId: "1:755249312421:web:016702caa1e559bd21934c",
+};
 
-filtroPrecio.addEventListener("change", () => {
-  const valor = filtroPrecio.value;
+const app = initializeApp(firebaseConfig);
 
-  productos.forEach((producto) => {
-    const precioTexto = producto.querySelector(".precio").textContent;
+const db = getFirestore(app);
 
-    const precio = parseFloat(precioTexto.replace("S/", ""));
+const contenedor = document.getElementById("productos-firebase");
 
-    let mostrar = true;
+async function obtenerProductos() {
+  const querySnapshot = await getDocs(collection(db, "productos"));
 
-    if (valor === "menos-50") {
-      mostrar = precio < 50;
-    }
+  querySnapshot.forEach((doc) => {
+    const producto = doc.data();
 
-    if (valor === "50-150") {
-      mostrar = precio >= 50 && precio <= 150;
-    }
+    console.log(producto);
 
-    producto.style.display = mostrar ? "block" : "none";
+    contenedor.innerHTML += `
+<div class="producto producto-card">
+
+  <img src="${producto.imagen}" alt="${producto.nombre}" />
+
+  <h4>${producto.nombre}</h4>
+  <p class="precio">S/ ${producto.precio}</p>
+  <button class="btn-index btn-agregar">
+    Agregar al carrito
+  </button>
+
+</div>
+`;
   });
-});
+}
+
+obtenerProductos();
